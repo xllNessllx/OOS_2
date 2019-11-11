@@ -10,7 +10,8 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung {
         ben_List = new Vector<Benutzer>();
     }
 
-    public void benutzerEintragen (Benutzer benutzer) throws NullPointerException {
+    public void benutzerEintragen (Benutzer benutzer) {
+
         ben_List.addElement(benutzer);
     }
 
@@ -18,7 +19,7 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung {
         return ben_List.contains(benutzer);
     }
 
-    void benutzerLöschen(Benutzer benutzer) throws NullPointerException{
+    void benutzerLöschen(Benutzer benutzer) {
         if(ben_List.isEmpty()){
             throw new NullPointerException();
         }
