@@ -27,13 +27,13 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung {
      * @throws IllegalArgumentException      :Objekt ist nicht vom Typ Benutzer
      * @throws NullPointerException          :Das Objekt ist NULL
      */
-    public void benutzerEintragen (Benutzer benutzer) throws IllegalArgumentException,NullPointerException {
-        if(!(benutzer instanceof Benutzer)){
+    public void benutzerEintragen (Benutzer benutzer) throws IllegalArgumentException{
+        if(benutzer.passWort.length == 0){
             throw  new IllegalArgumentException();
         }
-        if(benutzer == null){
-            throw new NullPointerException();
-        }
+        //if(benutzer == null){
+        //    throw new NullPointerException();
+        //}
         ben_List.addElement(benutzer);
     }
 
@@ -52,12 +52,12 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung {
      * @throws IllegalArgumentException     :Eingegebenes Objekt ist kein Benutzer
      * @throws NullPointerException         :Datenhaltung ist leer
      */
-    void benutzerLöschen(Benutzer benutzer) throws IllegalArgumentException,NullPointerException {
-        if(!(benutzer instanceof Benutzer)){
+    void benutzerLöschen(Benutzer benutzer) throws IllegalArgumentException,VektorLeerException {
+        if(benutzer.passWort.length == 0){
             throw new IllegalArgumentException();
         }
         if(ben_List.isEmpty()){
-            throw new NullPointerException();
+            throw new VektorLeerException();
         }
         ben_List.remove(benutzer);
     }

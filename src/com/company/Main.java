@@ -2,12 +2,11 @@ package com.company;
 
 public class Main{
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws VektorLeerException {
 
         BenutzerVerwaltungAdmin admin = new BenutzerVerwaltungAdmin();
         Benutzer benutzer1 = new Benutzer("default","test");
         Benutzer benutzer2 = new Benutzer();
-
 
         admin.benutzerEintragen(benutzer1);
         admin.benutzerEintragen(benutzer2);
@@ -31,10 +30,20 @@ public class Main{
             System.out.println("Benutzer sind ungleich");
         }
 
+        System.out.println("---------------------------------------------");
+
+        Benutzer beuntzer_test = new Benutzer("","");
+
         try {
-           admin.benutzerLöschen(benutzer1);
-        } catch (NullPointerException e1){
-            System.out.println("nullptr");
+            admin.benutzerLöschen(benutzer1);
+        } catch (VektorLeerException e3) {
+            e3.meldung();
+        } try{
+            admin.benutzerEintragen(beuntzer_test);;
+        } catch (IllegalArgumentException e2){
+            System.out.println("Falsches Argument");
+        } try{
+            admin.benutzerLöschen(beuntzer_test);;
         } catch (IllegalArgumentException e2){
             System.out.println("Falsches Argument");
         }
