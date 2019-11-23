@@ -1,9 +1,7 @@
 package com.company;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.*;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 /**
  * Klasse die Benutzer in einer Datenhaltung speichert
@@ -25,6 +23,20 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
     }
 
     /**
+     * Initialisiert die persistente Datenstruktur
+     */
+    void dbInitialisieren(){
+        try{
+            FileOutputStream fs = new FileOutputStream("daten.s");
+            ObjectOutputStream os = new ObjectOutputStream(fs);
+            os.writeObject(ben_List);
+            os.close();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * Fügt der Datenhaltung ein Objekt vom Typ Benutzer hinzu
      * @param benutzer                          :Der Benutzer, der Eingefügt werden soll
      * @throws IllegalArgumentException      :Objekt ist nicht vom Typ Benutzer
@@ -34,10 +46,21 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
         if(benutzer.passWort.length == 0){
             throw  new IllegalArgumentException();
         }
-        //if(benutzer == null){
-        //    throw new NullPointerException();
-        //}
-        ben_List.addElement(benutzer);
+        try{
+            FileInputStream fis = new FileInputStream("daten.s");
+            ObjectInputStream is = new ObjectInputStream(fis);
+            ben_List = (Vector<Benutzer>) is.readObject();
+            is.close();
+            ben_List.add(benutzer);
+            FileOutputStream fos = new FileOutputStream("daten.s");
+            ObjectOutputStream os = new ObjectOutputStream(fos);
+            os.writeObject(ben_List);
+            os.close();
+        } catch (IOException e1){
+            System.out.println("Die Datenbank muss erst initialisiert werden!");
+        } catch (ClassNotFoundException e2) {
+            e2.printStackTrace();
+        }
     }
 
     /**
@@ -46,7 +69,23 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      * @return          :True, wenn Benutzer existiert. False, wenn nicht
      */
     public boolean benutzerOk(Benutzer benutzer){
-        return ben_List.contains(benutzer);
+        try {
+            FileInputStream fis = new FileInputStream("daten.s");
+            ObjectInputStream is = new ObjectInputStream(fis);
+            ben_List = (Vector<Benutzer>) is.readObject();
+            is.close();
+            boolean result = ben_List.contains(benutzer);
+            FileOutputStream fos = new FileOutputStream("daten.s");
+            ObjectOutputStream os = new ObjectOutputStream(fos);
+            os.writeObject(ben_List);
+            os.close();
+            return result;
+        } catch (IOException e1){
+            System.out.println("Die Datenbank muss erst initialisiert werden!");
+        } catch (ClassNotFoundException e2) {
+            e2.printStackTrace();
+        }
+        return false;
     }
 
     /**
@@ -62,7 +101,21 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
         if(ben_List.isEmpty()){
             throw new VektorLeerException();
         }
-        ben_List.remove(benutzer);
+        try{
+            FileInputStream fis = new FileInputStream("daten.s");
+            ObjectInputStream is = new ObjectInputStream(fis);
+            ben_List = (Vector<Benutzer>) is.readObject();
+            is.close();
+            ben_List.remove(benutzer);
+            FileOutputStream fos = new FileOutputStream("daten.s");
+            ObjectOutputStream os = new ObjectOutputStream(fos);
+            os.writeObject(ben_List);
+            os.close();
+        } catch (IOException e1){
+            System.out.println("Die Datenbank muss erst initialisiert werden!");
+        } catch (ClassNotFoundException e2) {
+            e2.printStackTrace();
+        }
     }
 
     /**
