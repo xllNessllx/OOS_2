@@ -4,7 +4,9 @@ public class Main{
 
     public static void main(String[] args) throws VektorLeerException {
 
-        BenutzerVerwaltungAdmin admin = new BenutzerVerwaltungAdmin();
+
+
+        /*BenutzerVerwaltungAdmin admin = new BenutzerVerwaltungAdmin();
         Benutzer benutzer1 = new Benutzer("default","test");
         Benutzer benutzer2 = new Benutzer();
 
@@ -47,6 +49,6 @@ public class Main{
         } catch (IllegalArgumentException e2){
             System.out.println("Falsches Argument");
         }
-
+        */
     }
 }
