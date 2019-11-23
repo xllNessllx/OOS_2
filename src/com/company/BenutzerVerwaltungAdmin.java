@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.Serializable;
 import java.util.*;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -8,7 +9,7 @@ import java.io.ObjectOutputStream;
  * Klasse die Benutzer in einer Datenhaltung speichert
  * und diese verwaltet
  */
-public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung {
+public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable {
 
     /**
      * Datenhaltung in der die Nutzer gespeichert werden

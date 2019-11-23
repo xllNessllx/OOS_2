@@ -1,10 +1,12 @@
 package com.company;
 
+import java.io.Serializable;
+
 /**
  * Benutzerdaten
  * Passwort und Nutzername
  */
-public class Benutzer {
+public class Benutzer implements Serializable {
 
     /**
      * Nutzername
