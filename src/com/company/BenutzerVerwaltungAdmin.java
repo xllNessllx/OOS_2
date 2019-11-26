@@ -42,11 +42,10 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      * @throws IllegalArgumentException      :Objekt ist nicht vom Typ Benutzer
      * @throws NullPointerException          :Das Objekt ist NULL
      */
-    public void benutzerEintragen (Benutzer benutzer) throws IllegalArgumentException{
+    public void benutzerEintragen (Benutzer benutzer) throws IllegalArgumentException,IOException,ClassNotFoundException{
         if(benutzer.passWort.length == 0){
             throw  new IllegalArgumentException();
         }
-        try{
             FileInputStream fis = new FileInputStream("daten.s");
             ObjectInputStream is = new ObjectInputStream(fis);
             ben_List = (Vector<Benutzer>) is.readObject();
@@ -56,11 +55,6 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
             ObjectOutputStream os = new ObjectOutputStream(fos);
             os.writeObject(ben_List);
             os.close();
-        } catch (IOException e1){
-            System.out.println("Die Datenbank muss erst initialisiert werden!");
-        } catch (ClassNotFoundException e2) {
-            e2.printStackTrace();
-        }
     }
 
     /**
@@ -68,8 +62,7 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      * @param benutzer  :Benutzer der überprüft werden soll
      * @return          :True, wenn Benutzer existiert. False, wenn nicht
      */
-    public boolean benutzerOk(Benutzer benutzer){
-        try {
+    public boolean benutzerOk(Benutzer benutzer) throws IOException,ClassNotFoundException{
             FileInputStream fis = new FileInputStream("daten.s");
             ObjectInputStream is = new ObjectInputStream(fis);
             ben_List = (Vector<Benutzer>) is.readObject();
@@ -80,12 +73,6 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
             os.writeObject(ben_List);
             os.close();
             return result;
-        } catch (IOException e1){
-            System.out.println("Die Datenbank muss erst initialisiert werden!");
-        } catch (ClassNotFoundException e2) {
-            e2.printStackTrace();
-        }
-        return false;
     }
 
     /**
@@ -94,28 +81,22 @@ public class BenutzerVerwaltungAdmin implements BenutzerVerwaltung, Serializable
      * @throws IllegalArgumentException     :Eingegebenes Objekt ist kein Benutzer
      * @throws NullPointerException         :Datenhaltung ist leer
      */
-    void benutzerLöschen(Benutzer benutzer) throws IllegalArgumentException,VektorLeerException {
+    void benutzerLöschen(Benutzer benutzer) throws IllegalArgumentException,VektorLeerException,IOException,ClassNotFoundException {
         if(benutzer.passWort.length == 0){
             throw new IllegalArgumentException();
         }
-        if(ben_List.isEmpty()){
-            throw new VektorLeerException();
-        }
-        try{
             FileInputStream fis = new FileInputStream("daten.s");
             ObjectInputStream is = new ObjectInputStream(fis);
             ben_List = (Vector<Benutzer>) is.readObject();
+            if(ben_List.isEmpty()){
+                throw new VektorLeerException();
+            }
             is.close();
             ben_List.remove(benutzer);
             FileOutputStream fos = new FileOutputStream("daten.s");
             ObjectOutputStream os = new ObjectOutputStream(fos);
             os.writeObject(ben_List);
             os.close();
-        } catch (IOException e1){
-            System.out.println("Die Datenbank muss erst initialisiert werden!");
-        } catch (ClassNotFoundException e2) {
-            e2.printStackTrace();
-        }
     }
 
     /**

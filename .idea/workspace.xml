@@ -132,9 +132,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in OOS_2" />
+        <item itemvalue="JUnit.BenutzerTest" />
         <item itemvalue="JUnit.BenutzerVerwaltungAdminTest.benutzerLöschenTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.BenutzerTest" />
         <item itemvalue="JUnit.BenutzerVerwaltungAdminTest" />
       </list>
     </recent_temporary>
@@ -159,7 +159,10 @@
       <workItem from="1573563152043" duration="2927000" />
       <workItem from="1574512165892" duration="4677000" />
       <workItem from="1574525207748" duration="3498000" />
-      <workItem from="1574528767326" duration="4253000" />
+      <workItem from="1574528767326" duration="4317000" />
+      <workItem from="1574597514160" duration="67000" />
+      <workItem from="1574707632351" duration="3363000" />
+      <workItem from="1574760702000" duration="1838000" />
     </task>
     <servers />
   </component>

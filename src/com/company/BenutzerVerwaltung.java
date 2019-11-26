@@ -10,10 +10,10 @@ public interface BenutzerVerwaltung {
     /**
      * @see BenutzerVerwaltungAdmin
      */
-    abstract void benutzerEintragen(Benutzer benutzer) throws IllegalArgumentException;
+    abstract void benutzerEintragen(Benutzer benutzer) throws IllegalArgumentException,IOException,ClassNotFoundException;
 
     /**
      * @see BenutzerVerwaltungAdmin
      */
-    abstract boolean benutzerOk(Benutzer benutzer) throws IllegalArgumentException,VektorLeerException;
+    abstract boolean benutzerOk(Benutzer benutzer) throws IOException,ClassNotFoundException;
 }

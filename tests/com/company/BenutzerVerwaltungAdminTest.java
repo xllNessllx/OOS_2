@@ -38,22 +38,72 @@ class BenutzerVerwaltungAdminTest {
 
     @Test
     public void benutzerEintragenTest(){
-        admin.benutzerEintragen(benutzer1);
-        assertTrue(admin.benutzerOk(benutzer1));
+        try {
+            admin.benutzerEintragen(benutzer1);
+            assertTrue(admin.benutzerOk(benutzer1));
+        } catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void benutzerOKTest(){
-        admin.benutzerEintragen(benutzer1);
-        assertTrue(admin.benutzerOk(benutzer1));
-        assertFalse(admin.benutzerOk(benutzer2));
+        try {
+            admin.benutzerEintragen(benutzer1);
+            assertTrue(admin.benutzerOk(benutzer1));
+            assertFalse(admin.benutzerOk(benutzer2));
+        } catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void benutzerLöschenTest() throws VektorLeerException {
-        admin.benutzerEintragen(benutzer1);
-        admin.benutzerLöschen(benutzer1);
-        assertFalse(admin.benutzerOk(benutzer1));
+        try {
+            admin.benutzerEintragen(benutzer1);
+            admin.benutzerLöschen(benutzer1);
+            assertFalse(admin.benutzerOk(benutzer1));
+        } catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
     }
 
+    //Tests ohne DB:
+
+    @Test
+    public void benutzerEintragenTestOhneDB(){
+        cleanup();
+        assertThrows(IOException.class,() -> {
+            admin.benutzerEintragen(benutzer1);
+        });
+    }
+
+    @Test
+    void benutzerOkTestOhneDB() {
+        cleanup();
+        assertThrows(IOException.class,() -> {
+            admin.benutzerEintragen(benutzer1);
+        });
+    }
+
+    @Test
+    void benutzerLöschenTestOhneDB() {
+        cleanup();
+        assertThrows(IOException.class,() -> {
+            admin.benutzerLöschen(benutzer1);
+        });
+    }
+
+    //Weitere Tests:
+
+   @Test
+    public void IllegalArgumentExceptionTest(){
+       Benutzer benutzer = new Benutzer("","");
+       assertThrows(IllegalArgumentException.class,() -> {
+           admin.benutzerEintragen(benutzer);
+       });
+       assertThrows(IllegalArgumentException.class,() -> {
+           admin.benutzerLöschen(benutzer);
+       });
+   }
 }

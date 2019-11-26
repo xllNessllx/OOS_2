@@ -7,9 +7,9 @@ public class Main{
 
     public static void main(String[] args) throws VektorLeerException {
 
-        BenutzerVerwaltungAdmin admin = new BenutzerVerwaltungAdmin();
-        Benutzer benutzer = new Benutzer();
-        admin.benutzerEintragen(benutzer);
+        //BenutzerVerwaltungAdmin admin = new BenutzerVerwaltungAdmin();
+        //Benutzer benutzer = new Benutzer();
+        //admin.benutzerEintragen(benutzer);
         //admin.benutzerLöschen(benutzer);
         /*BenutzerVerwaltungAdmin admin = new BenutzerVerwaltungAdmin();
         Benutzer benutzer1 = new Benutzer("default","test");
