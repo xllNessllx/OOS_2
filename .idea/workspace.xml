@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71f89a6e-5199-4dc3-a748-36448a431c8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/VektorLeerException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOS_2/com/company/BenutzerVerwaltungAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOS_2/com/company/BenutzerVerwaltungAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOS_2/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOS_2/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/BenutzerVerwaltung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/BenutzerVerwaltung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/BenutzerVerwaltungAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/BenutzerVerwaltungAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +22,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1TKkiCthg06APrWedzrXjBFn277" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
@@ -52,19 +50,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="JUnit.All in OOS_2">
+  <component name="RunManager" selected="JUnit.BenutzerTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="OOS_2" />
@@ -131,13 +117,25 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in OOS_2" />
         <item itemvalue="JUnit.BenutzerTest" />
+        <item itemvalue="JUnit.All in OOS_2" />
         <item itemvalue="JUnit.BenutzerVerwaltungAdminTest.benutzerLöschenTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.BenutzerVerwaltungAdminTest" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -163,6 +161,12 @@
       <workItem from="1574597514160" duration="67000" />
       <workItem from="1574707632351" duration="3363000" />
       <workItem from="1574760702000" duration="1838000" />
+      <workItem from="1574762669527" duration="84000" />
+      <workItem from="1574774068383" duration="1753000" />
+      <workItem from="1574940902413" duration="440000" />
+      <workItem from="1575288946737" duration="979000" />
+      <workItem from="1575290343066" duration="11000" />
+      <workItem from="1575833550081" duration="98000" />
     </task>
     <servers />
   </component>
